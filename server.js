@@ -17,7 +17,7 @@ var version=process.env.version || "1.0"
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
-app.use(express.static(path.join(__dirname,'../dist/angular7crud')));
+app.use(express.static(path.join(__dirname,'/public')));
 
 app.get('/getversion',function(req,res){
   console.log('Version '+version);
@@ -27,7 +27,7 @@ app.use('/business', businessRoute);
 app.use('/emailEntry', emailEntryRoute);
 
 app.use('/',function(req,res){
-  res.sendFile(path.join(__dirname,'../dist/angular7crud','index.html'))
+  res.sendFile(path.join(__dirname,'/public','index.html'))
 });
 const port = process.env.PORT || 4000;
 
